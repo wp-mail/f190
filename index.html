@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0; url=https://ipfs.io/ipfs/bafybeiayw5cdvvpvxxjql2ag4hny4hjq3ek6cbgdet4cj2g3is3ow66z4m/">
+  <title>Loading...</title>
+  <script>
+    const cid = "bafybeiayw5cdvvpvxxjql2ag4hny4hjq3ek6cbgdet4cj2g3is3ow66z4m";
+
+    const gateways = [
+      "https://ipfs.io/ipfs/",
+      "https://dweb.link/ipfs/",
+      "https://gateway.pinata.cloud/ipfs/"
+    ];
+
+    let index = 0;
+
+    function tryNext() {
+      if (index >= gateways.length) {
+        document.body.innerHTML = "Failed to load content.";
+        return;
+      }
+
+      const url = gateways[index] + cid;
+      index++;
+
+      window.location.href = url;
+    }
+
+    // try first gateway
+    tryNext();
+  </script>
 </head>
 <body>
-  <p>Redirecting to content...</p>
+  <p>Loading content from IPFS...</p>
 </body>
 </html>
